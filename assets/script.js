@@ -63,18 +63,18 @@ function generatePassword() {
   }
 
   if (userChoice.confirmLowerCase) {
-    typesChars = typesChars.concat(specialChars);
-    actualChars.push(randomChars(specialChars));
+    typesChars = typesChars.concat(lowerChars);
+    actualChars.push(randomChars(lowerChars));
   }
 
   if (userChoice.confirmUpperCase) {
-    typesChars = typesChars.concat(specialChars);
-    actualChars.push(randomChars(specialChars));
+    typesChars = typesChars.concat(upperChars);
+    actualChars.push(randomChars(upperChars));
   }
 
   if (userChoice.confirmNumber) {
-    typesChars = typesChars.concat(specialChars);
-    actualChars.push(randomChars(specialChars));
+    typesChars = typesChars.concat(numberChars);
+    actualChars.push(randomChars(numberChars));
   }
   
   for (let i=0; i<userChoice.length; i++) {
