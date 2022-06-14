@@ -1,10 +1,10 @@
 // Assignment code here
 
 //variables used for random password
-var numberChars="0123456789";
-var upperChars= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowerChars= "abcdefghijklmnopqrstuvwxyz";
-var specialChars= "!@#$%^&*?<>-_"
+var numberChars="0,1,2,3,4,5,6,7,8,9";
+var upperChars= "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+var lowerChars= "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+var specialChars= "!,@,#,$,%,^,&,*,?,<,>,-,_"
 
 //password length requirements
 function userOptions() {
@@ -49,13 +49,37 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 function generatePassword() {
   var userChoice = userOptions();
+  var typesChars = []
+  var actualChars = []
+
+  if (userChoice.confirmSpecial) {
+    typesChars = typesChars.concat(specialChars);
+    actualChars.push(randomChars(specialChars));
+  }
+
+  if (userChoice.confirmLowerCase) {
+    typesChars = typesChars.concat(specialChars);
+    actualChars.push(randomChars(specialChars));
+  }
+
+  if (userChoice.confirmUpperCase) {
+    typesChars = typesChars.concat(specialChars);
+    actualChars.push(randomChars(specialChars));
+  }
+
+  if (userChoice.confirmNumber) {
+    typesChars = typesChars.concat(specialChars);
+    actualChars.push(randomChars(specialChars));
+  }
+  
+  for (let i=0; i<userChoice.length; i++) {
+
+  }
 }
 
 // Add event listener to generate button
