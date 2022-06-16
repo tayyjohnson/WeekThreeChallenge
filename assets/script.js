@@ -1,10 +1,10 @@
 // Assignment code here
 
 //variables used for random password
-var numberChars="0,1,2,3,4,5,6,7,8,9";
-var upperChars= "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
-var lowerChars= "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
-var specialChars= "!,@,#,$,%,^,&,*,?,<,>,-,_"
+var numberChars=["0","1","2","3","4","5","6","7","8","9"];
+var upperChars= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var lowerChars= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var specialChars= ["!","@","#","$","%","^","&","*","?","<",">","-","_"];
 
 //password length requirements
 function userOptions() {
@@ -78,9 +78,15 @@ function generatePassword() {
   }
   
   for (let i=0; i<userChoice.length; i++) {
-
+    var extraChars = randomChars(typesChars);
+    finalPassword.push(extraChars);
   }
-}
+
+  for (let i=0; i < actualChars.length; i++) {
+    finalPassword[i] = actualChars[i];
+  }
+  return finalPassword.join('');
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
