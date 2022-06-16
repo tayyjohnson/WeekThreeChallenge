@@ -35,7 +35,7 @@ var allChars = {
 return allChars;
 
 };
-
+// allows the password to be created randomly with any of the global variables listed above
 function randomChars(Array) {
   var randomIndex = Math.floor(Math.random() * Array.length);
   var randomElement = Array[randomIndex];
@@ -51,12 +51,12 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-
+// where the password is actually generated & prompts are confirmed when the user clicks
 function generatePassword() {
   var userChoice = userOptions();
   var typesChars = []
   var actualChars = []
-
+  var finalPassword = []
   if (userChoice.confirmSpecial) {
     typesChars = typesChars.concat(specialChars);
     actualChars.push(randomChars(specialChars));
